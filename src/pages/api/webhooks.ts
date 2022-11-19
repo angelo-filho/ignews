@@ -46,7 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       secret || "",
       process.env.STRIPE_WEBHOOK_SECRET || ""
     );
-  } catch (error) {
+  } catch (error: any) {
     return res.status(400).send(`Webhook error: ${error.message}`);
   }
 

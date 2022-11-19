@@ -29,7 +29,7 @@ export function SubscribeButton() {
       const stripe = await getStripeJs();
 
       await stripe?.redirectToCheckout({ sessionId });
-    } catch (err) {
+    } catch (err: any) {
       alert(err.message);
     }
   }

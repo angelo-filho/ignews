@@ -1,4 +1,4 @@
-import { query as q } from "faunadb";
+import { ExprArg, query as q } from "faunadb";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/react";
@@ -18,8 +18,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
     const session = await getSession({ req });
 
+    if (!session?.user) {
+      return;
+    }
+
     const user = await fauna.query<User>(
-      q.Get(q.Match(q.Index("user_by_email"), q.Casefold(session.user.email)))
+      q.Get(
+        q.Match(
+          q.Index("user_by_email"),
+          q.Casefold(session.user.email as ExprArg)
+        )
+      )
     );
 
     let customerId = user.data.stripe_customer_id;
