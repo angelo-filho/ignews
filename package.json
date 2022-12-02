@@ -13,6 +13,7 @@
     "@prismicio/client": "^6.7.1",
     "@prismicio/helpers": "^2.3.5",
     "@stripe/stripe-js": "^1.38.1",
+    "@vercel/analytics": "^0.1.5",
     "axios": "^0.27.2",
     "faunadb": "^4.7.0",
     "next": "12.2.2",
