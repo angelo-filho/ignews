@@ -4,6 +4,8 @@
 }
 
 .headerContent {
+  z-index: 1000;
+
   max-width: 1120px;
   height: 5rem;
   margin: 0 auto;
@@ -12,7 +14,29 @@
   display: flex;
   align-items: center;
 
+  > button {
+    margin-right: 1rem;
+
+    background: transparent;
+    border: none;
+    color: var(--white);
+  }
+
+  @media screen and (min-width: 800px) {
+    > button {
+      display: none;
+    }
+  }
+}
+
+.rightContent {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
   nav {
+    display: none;
     margin-left: 5rem;
     height: 5rem;
 
@@ -54,5 +78,51 @@
 
   button {
     margin-left: auto;
+  }
+
+  @media screen and (min-width: 800px) {
+    nav {
+      display: block;
+    }
+  }
+}
+
+.mobileMenu {
+  z-index: 500;
+
+  width: 100vw;
+  padding-block: 2rem;
+  padding-left: 1.75rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  overflow-y: hidden;
+
+  background-color: var(--gray-900);
+  border-bottom: 1px solid var(--gray-800);
+
+  a {
+    display: inline-block;
+    position: relative;
+    padding: 0 0.5rem;
+    color: var(--gray-300);
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--white);
+    }
+
+    &.active {
+      color: var(--white);
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    display: none;
   }
 }
