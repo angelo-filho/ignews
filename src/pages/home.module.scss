@@ -1,16 +1,34 @@
 .contentContainer {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 2rem;
-  height: calc(100vh - 5rem);
+  padding: 3rem 2rem;
 
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: space-between;
+
+  gap: 3.5rem;
+
+  > img {
+    width: 235px;
+  }
+
+  @media screen and (min-width: 820px) {
+    height: calc(100vh - 5rem);
+
+    flex-direction: row;
+
+    > img {
+      width: auto;
+    }
+  }
 }
 
 .hero {
   max-width: 600px;
+
+  text-align: center;
 
   > span {
     font-size: 1.5rem;
@@ -18,7 +36,7 @@
   }
 
   h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     line-height: 4.5rem;
     font-weight: 900;
     margin-top: 2.5rem;
@@ -41,5 +59,13 @@
 
   button {
     margin-top: 2.5rem;
+  }
+
+  @media screen and (min-width: 600px) {
+    text-align: left;
+
+    h1 {
+      font-size: 4.5rem;
+    }
   }
 }
